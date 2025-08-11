@@ -9,23 +9,23 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Warm Neutrals -->
-    <!-- Application Structure Plan: He diseñado la aplicación con una estructura de navegación por pestañas (Instagram, LinkedIn, SEO para IA) en lugar de un formato de informe lineal. Esta arquitectura permite a los usuarios acceder directamente a la información que más les interesa. Dentro de cada pestaña, el contenido se subdivide en secciones lógicas como "Optimización", "Contenido" y "Qué Evitar", utilizando tarjetas interactivas y acordeones. Este enfoque temático y jerárquico mejora la navegabilidad y la asimilación del contenido, ya que el usuario puede explorar conceptos específicos sin tener que desplazarse por todo el documento. El flujo está pensado para guiar al usuario desde los fundamentos de la optimización de perfiles hasta las estrategias de contenido avanzadas y las tácticas a evitar, culminando en un plan de acción concreto. -->
+    <!-- Chosen Palette: ComunidadFeliz.cl Inspired (Blue, Gray, White) -->
+    <!-- Application Structure Plan: He rediseñado la aplicación para que el plan de acción estratégico de cada plataforma se integre directamente en su respectiva pestaña (Instagram, LinkedIn, SEO para IA). Esta arquitectura permite a los usuarios acceder a la información y a la acción recomendada de manera simultánea. Dentro de cada pestaña, el contenido se subdivide en secciones lógicas, ahora incluyendo el plan de acción específico. Este enfoque temático y jerárquico mejora la navegabilidad y la asimilación del contenido, ya que el usuario puede explorar conceptos específicos y las tácticas a implementar sin tener que desplazarse por toda la aplicación. El flujo está pensado para guiar al usuario desde los fundamentos de la optimización de perfiles hasta las estrategias de contenido avanzadas y las tácticas a evitar, culminando en un plan de acción concreto dentro de cada sección temática. -->
     <!-- Visualization & Content Choices: Para visualizar los datos y conceptos, he optado por una combinación de elementos interactivos. Report Info: Comparación de indexación de perfiles de LinkedIn. -> Goal: Comparar. -> Viz/Presentation Method: Gráfico de barras (Chart.js). -> Interaction: Tooltips al pasar el ratón. -> Justification: Un gráfico de barras es ideal para mostrar una comparación directa y cuantitativa de forma visualmente impactante. Report Info: Estrategias de contenido y prácticas a evitar. -> Goal: Informar y Organizar. -> Viz/Presentation Method: Tarjetas interactivas y listas de "Hacer y No Hacer" con iconos. -> Interaction: Efectos hover y clics para revelar información. -> Justification: Las tarjetas dividen la información compleja en fragmentos digeribles, y la interactividad fomenta la exploración activa por parte del usuario. Report Info: Plan de acción. -> Goal: Organizar/Proceso. -> Viz/Presentation Method: Acordeón interactivo. -> Interaction: Clic para expandir/colapsar pasos. -> Justification: Un acordeón es perfecto para presentar un proceso paso a paso de forma limpia y ordenada. -->
     <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #FDFBF8;
-            color: #383838;
+            background-color: #F9FAFB;
+            color: #1F2937;
         }
         .nav-button {
             transition: all 0.3s ease;
             border-bottom: 2px solid transparent;
         }
         .nav-button.active {
-            border-bottom-color: #D97706;
-            color: #D97706;
+            border-bottom-color: #2563EB;
+            color: #2563EB;
             font-weight: 600;
         }
         .content-section {
@@ -60,6 +60,9 @@
             overflow: hidden;
             transition: max-height 0.5s ease-in-out;
         }
+        .table-scroll-container {
+            overflow-x: auto;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -67,7 +70,7 @@
     <div class="container mx-auto px-4 py-8">
         
         <header class="text-center mb-12">
-            <h1 class="text-4xl md:text-5xl font-bold text-amber-800 mb-2">Guía Interactiva de SEO para Redes Sociales</h1>
+            <h1 class="text-4xl md:text-5xl font-bold text-blue-800 mb-2">Guía Interactiva de SEO para Redes Sociales</h1>
             <p class="text-lg text-gray-600 max-w-3xl mx-auto">Navega por las estrategias clave para optimizar tu presencia en Instagram, LinkedIn y prepárate para la era de la búsqueda con IA.</p>
         </header>
 
@@ -91,7 +94,7 @@
                 </div>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div class="card bg-white p-6 rounded-xl shadow-md">
-                        <h3 class="font-bold text-xl mb-3 text-amber-700">✓ Requisitos de Indexación</h3>
+                        <h3 class="font-bold text-xl mb-3 text-blue-700">✓ Requisitos de Indexación</h3>
                         <ul class="space-y-2 text-gray-700 list-disc list-inside">
                             <li>Cuenta <span class="font-semibold">Pública</span>.</li>
                             <li>Cuenta <span class="font-semibold">Profesional</span> (Business o Creator).</li>
@@ -100,11 +103,11 @@
                         </ul>
                     </div>
                     <div class="card bg-white p-6 rounded-xl shadow-md">
-                        <h3 class="font-bold text-xl mb-3 text-amber-700">👤 Optimización del Perfil</h3>
+                        <h3 class="font-bold text-xl mb-3 text-blue-700">👤 Optimización del Perfil</h3>
                         <p class="text-gray-700">Tu perfil es tu carta de presentación. Incluye palabras clave en tu <span class="font-semibold">nombre y usuario</span>. Usa la <span class="font-semibold">biografía</span> para describir tu propuesta de valor y añade un <span class="font-semibold">enlace rastreable</span>.</p>
                     </div>
                     <div class="card bg-white p-6 rounded-xl shadow-md">
-                        <h3 class="font-bold text-xl mb-3 text-amber-700">✍️ Contenido Estratégico</h3>
+                        <h3 class="font-bold text-xl mb-3 text-blue-700">✍️ Contenido Estratégico</h3>
                         <p class="text-gray-700">Cada publicación es una oportunidad de SEO. Escribe <span class="font-semibold">pies de foto</span> largos y con contexto, utiliza el <span class="font-semibold">texto alternativo (Alt Text)</span> para describir tus imágenes y aprovecha formatos como <span class="font-semibold">Reels y Carruseles</span>.</p>
                     </div>
                 </div>
@@ -114,6 +117,8 @@
                         <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg">
                             <h4 class="font-bold text-lg mb-2 text-green-800">✅ Hacer</h4>
                             <ul class="space-y-2 list-disc list-inside text-green-700">
+                                <li>Crea y programa tus posts desde Hubspot asociándolo a la campaña de la vertical correspondiente. <a href="https://www.loom.com/share/e827cda95ff44095a6759a25cc93a66f?sid=c7daa07e-8374-4c55-9e17-fa37a3fa3aa8" target="_blank" class="text-blue-600 underline">Ver tutorial</a>.</li>
+                                <li>Cuando puedas, comienza con una pregunta, ej: "¿qué dice la ley sobre X cosa?".</li>
                                 <li>Usar una mezcla estratégica de hashtags (nicho, populares, de marca).</li>
                                 <li>Escribir texto alternativo descriptivo y natural.</li>
                                 <li>Dar crédito siempre al autor del contenido que compartes.</li>
@@ -131,6 +136,61 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-16">
+                    <h3 class="text-2xl font-bold text-center mb-6">Plan de Acción para Instagram</h3>
+                    <p class="mb-4 text-center text-gray-600">Aquí hay algunas ideas de publicaciones y cómo optimizarlas para mejorar el SEO en Instagram.</p>
+                    <div class="table-scroll-container max-w-5xl mx-auto">
+                        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-100 text-left">
+                                    <th class="py-3 px-4 border-b-2 border-gray-200 font-semibold text-gray-700">Idea de Publicación</th>
+                                    <th class="py-3 px-4 border-b-2 border-gray-200 font-semibold text-gray-700">Optimízala así</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-4 px-4 align-top">
+                                        <strong class="text-blue-700">Carrusel Educativo</strong>
+                                        <p class="text-sm mt-1">Un carrusel que explique "5 cosas que quizás no sabías sobre la ley de copropiedad".</p>
+                                    </td>
+                                    <td class="py-4 px-4 align-top">
+                                        <ul class="list-disc list-inside text-sm">
+                                            <li>En el pie de foto, comienza con una pregunta: "¿Sabías que la ley...?"</li>
+                                            <li>Utiliza un pie de foto largo con palabras clave como "ley de copropiedad", "gastos comunes", "asamblea de copropietarios".</li>
+                                            <li>Asegúrate de que cada imagen del carrusel tenga un texto alternativo descriptivo.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-4 px-4 align-top">
+                                        <strong class="text-blue-700">Reel de Consejos Rápidos</strong>
+                                        <p class="text-sm mt-1">Un video corto de 30 segundos dando un consejo útil sobre cómo ahorrar en gastos comunes.</p>
+                                    </td>
+                                    <td class="py-4 px-4 align-top">
+                                        <ul class="list-disc list-inside text-sm">
+                                            <li>Escribe una transcripción del audio como pie de foto para que sea indexable.</li>
+                                            <li>Usa hashtags relevantes como #GastosComunes #AhorroEnComunidad.</li>
+                                            <li>Incluye una llamada a la acción en la descripción: "Comenta tu mejor tip para ahorrar".</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-4 align-top">
+                                        <strong class="text-blue-700">Post de Preguntas y Respuestas</strong>
+                                        <p class="text-sm mt-1">Una imagen con texto que diga "¿Tienes dudas sobre la administración de tu edificio?"</p>
+                                    </td>
+                                    <td class="py-4 px-4 align-top">
+                                        <ul class="list-disc list-inside text-sm">
+                                            <li>Comienza el pie de foto con la pregunta del post.</li>
+                                            <li>Describe la imagen con un texto alternativo que incluya la pregunta.</li>
+                                            <li>Anima a los usuarios a dejar sus preguntas en los comentarios.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
 
             <section id="linkedin" class="content-section">
@@ -143,15 +203,15 @@
                         <h3 class="text-2xl font-bold mb-4">Optimización del Perfil Profesional</h3>
                         <div class="space-y-4">
                             <div class="card bg-white p-4 rounded-lg shadow">
-                                <h4 class="font-semibold text-amber-700">Titular Estratégico</h4>
+                                <h4 class="font-semibold text-blue-700">Titular Estratégico</h4>
                                 <p class="text-sm text-gray-600">Usa los 220 caracteres para describir tu especialidad y propuesta de valor, no solo tu cargo.</p>
                             </div>
                             <div class="card bg-white p-4 rounded-lg shadow">
-                                <h4 class="font-semibold text-amber-700">Sección "Acerca de"</h4>
+                                <h4 class="font-semibold text-blue-700">Sección "Acerca de"</h4>
                                 <p class="text-sm text-gray-600">Cuenta tu historia profesional integrando palabras clave relevantes de forma natural.</p>
                             </div>
                             <div class="card bg-white p-4 rounded-lg shadow">
-                                <h4 class="font-semibold text-amber-700">Señales de Autoridad</h4>
+                                <h4 class="font-semibold text-blue-700">Señales de Autoridad</h4>
                                 <p class="text-sm text-gray-600">Solicita y ofrece recomendaciones y validaciones de aptitudes para reforzar tu credibilidad.</p>
                             </div>
                         </div>
@@ -187,6 +247,61 @@
                         </div>
                     </div>
                 </div>
+                <div class="mt-16">
+                    <h3 class="text-2xl font-bold text-center mb-6">Plan de Acción para LinkedIn</h3>
+                    <p class="mb-4 text-center text-gray-600">Aquí hay algunas ideas de publicaciones y cómo optimizarlas para mejorar el SEO en LinkedIn.</p>
+                    <div class="table-scroll-container max-w-5xl mx-auto">
+                         <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-100 text-left">
+                                    <th class="py-3 px-4 border-b-2 border-gray-200 font-semibold text-gray-700">Idea de Publicación</th>
+                                    <th class="py-3 px-4 border-b-2 border-gray-200 font-semibold text-gray-700">Optimízala así</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-4 px-4 align-top">
+                                        <strong class="text-blue-700">Artículo de Liderazgo de Opinión</strong>
+                                        <p class="text-sm mt-1">Un artículo de fondo sobre "El futuro de la administración de comunidades con IA".</p>
+                                    </td>
+                                    <td class="py-4 px-4 align-top">
+                                        <ul class="list-disc list-inside text-sm">
+                                            <li>Utiliza un titular atractivo y optimizado con palabras clave como "administración", "comunidades", "IA".</li>
+                                            <li>Usa encabezados (H2, H3) y listas para estructurar el contenido, lo que facilita la indexación de la IA.</li>
+                                            <li>Añade enlaces internos a otros artículos de tu perfil o página de empresa.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr class="border-b border-gray-200">
+                                    <td class="py-4 px-4 align-top">
+                                        <strong class="text-blue-700">Post con Encuesta</strong>
+                                        <p class="text-sm mt-1">Una encuesta preguntando a los administradores sobre su mayor desafío en la gestión de conflictos.</p>
+                                    </td>
+                                    <td class="py-4 px-4 align-top">
+                                        <ul class="list-disc list-inside text-sm">
+                                            <li>Empieza el post con una pregunta directa y concisa para fomentar la participación.</li>
+                                            <li>Integra la palabra clave "gestión de conflictos en comunidades" en la descripción del post.</li>
+                                            <li>Utiliza hashtags como #LinkedInPoll #AdministracionDeComunidades.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="py-4 px-4 align-top">
+                                        <strong class="text-blue-700">Video de Testimonio de Cliente</strong>
+                                        <p class="text-sm mt-1">Un video corto donde un cliente cuenta cómo ComunidadFeliz resolvió un problema en su edificio.</p>
+                                    </td>
+                                    <td class="py-4 px-4 align-top">
+                                        <ul class="list-disc list-inside text-sm">
+                                            <li>Escribe una transcripción del video en la descripción del post.</li>
+                                            <li>Utiliza palabras clave como "software de administración" y "soluciones para edificios".</li>
+                                            <li>Etiqueta al cliente si tiene un perfil para aumentar el alcance.</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </section>
 
             <section id="ai" class="content-section">
@@ -195,7 +310,7 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">La búsqueda asistida por IA (como Google AI Overview) cambia el objetivo: no se trata solo de ganar el clic, sino de ser una fuente tan fiable que la IA te cite directamente. La clave es el concepto E-E-A-T.</p>
                 </div>
                 <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
-                    <h3 class="text-2xl font-bold text-center mb-4 text-amber-800">E-E-A-T: El Factor Clave de Citación</h3>
+                    <h3 class="text-2xl font-bold text-center mb-4 text-blue-800">E-E-A-T: El Factor Clave de Citación</h3>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                         <div>
                             <div class="text-4xl mb-2">🎓</div>
@@ -247,51 +362,21 @@
                         <p class="text-gray-600">Monitoriza menciones de marca y tu tasa de inclusión en resúmenes de IA, no solo los clics.</p>
                     </div>
                 </div>
-            </section>
-            
-            <section class="mt-16">
-                 <div class="text-center mb-10">
-                    <h2 class="text-3xl font-bold mb-2">Plan de Acción Estratégico</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Unifica tus estrategias de redes sociales y SEO con este plan de tres fases para capitalizar las nuevas tendencias.</p>
-                </div>
-                <div id="accordion" class="space-y-4 max-w-3xl mx-auto">
-                    <div class="accordion-item bg-white rounded-lg shadow-md">
-                        <button class="accordion-header w-full text-left p-5 font-semibold text-lg flex justify-between items-center">
-                            <span>Fase 1: Auditoría y Optimización de la Base</span>
-                            <span class="accordion-icon text-amber-700 text-2xl">+</span>
-                        </button>
-                        <div class="accordion-content px-5 pb-5 text-gray-700">
-                            <ul class="list-disc list-inside space-y-2 pt-2">
-                                <li><strong>Revisar Perfiles:</strong> Asegurar que los perfiles de Instagram y LinkedIn sean públicos, profesionales y cumplan los requisitos de indexación.</li>
-                                <li><strong>Refinar Optimización:</strong> Incluir palabras clave relevantes en nombres, biografías y titulares.</li>
-                                <li><strong>Mejorar Estructura:</strong> Usar URLs personalizadas y enlaces rastreables.</li>
-                            </ul>
-                        </div>
-                    </div>
-                     <div class="accordion-item bg-white rounded-lg shadow-md">
-                        <button class="accordion-header w-full text-left p-5 font-semibold text-lg flex justify-between items-center">
-                            <span>Fase 2: Creación de Contenido de Autoridad</span>
-                            <span class="accordion-icon text-amber-700 text-2xl">+</span>
-                        </button>
-                        <div class="accordion-content px-5 pb-5 text-gray-700">
-                           <ul class="list-disc list-inside space-y-2 pt-2">
-                                <li><strong>Priorizar E-E-A-T:</strong> Crear contenido exhaustivo y estructurado que demuestre experiencia y pericia.</li>
-                                <li><strong>Optimizar para lo Multimodal:</strong> Usar Alt Text en imágenes y subtítulos en vídeos.</li>
-                                <li><strong>Estrategia Mixta:</strong> Combinar formatos de alta interacción (Reels) con formatos de autoridad (Artículos).</li>
-                            </ul>
-                        </div>
-                    </div>
-                     <div class="accordion-item bg-white rounded-lg shadow-md">
-                        <button class="accordion-header w-full text-left p-5 font-semibold text-lg flex justify-between items-center">
-                            <span>Fase 3: Fomento de la Interacción y Confianza</span>
-                            <span class="accordion-icon text-amber-700 text-2xl">+</span>
-                        </button>
-                        <div class="accordion-content px-5 pb-5 text-gray-700">
-                            <ul class="list-disc list-inside space-y-2 pt-2">
-                                <li><strong>Fomentar Engagement Genuino:</strong> Participar activamente en la comunidad, no solo publicar.</li>
-                                <li><strong>Construir Autoridad en Red:</strong> Solicitar recomendaciones y colaborar con otros perfiles reconocidos.</li>
-                                <li><strong>Monitorear Nuevas Métricas:</strong> Rastrear menciones de marca y visibilidad en resúmenes de IA.</li>
-                            </ul>
+                <div class="mt-16">
+                     <div id="accordion-ai" class="space-y-4 max-w-3xl mx-auto">
+                         <div class="accordion-item bg-white rounded-lg shadow-md">
+                            <button class="accordion-header w-full text-left p-5 font-semibold text-lg flex justify-between items-center">
+                                <span>Plan de Acción para SEO en la Era de la IA</span>
+                                <span class="accordion-icon text-blue-700 text-2xl">+</span>
+                            </button>
+                            <div class="accordion-content px-5 pb-5 text-gray-700">
+                                <ul class="list-disc list-inside space-y-2 pt-2">
+                                    <li><strong>Demostrar E-E-A-T:</strong> Asegúrate de que todo tu contenido refleje experiencia, pericia, autoridad y fiabilidad, ya que la IA prioriza estas señales.</li>
+                                    <li><strong>Estructura de Contenido:</strong> Usa encabezados, listas y tablas para que los modelos de IA puedan extraer información de forma eficiente.</li>
+                                    <li><strong>Optimización Multimodal:</strong> Optimiza las imágenes con texto alternativo detallado y añade subtítulos a los vídeos para la búsqueda visual y por voz.</li>
+                                    <li><strong>Monitoreo de Métricas:</strong> Mide el éxito no solo por los clics, sino también por las menciones de marca y la inclusión en los resúmenes de IA.</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -299,7 +384,7 @@
         </main>
 
         <footer class="text-center mt-16 pt-8 border-t border-gray-200">
-            <p class="text-gray-500">Aplicación interactiva creada para explorar las tendencias de SEO en Redes Sociales.</p>
+            <p class="text-gray-500">Hecho con ♥ para team CF</p>
         </footer>
 
     </div>
@@ -354,12 +439,12 @@
                     label: 'Velocidad y Ranking de Indexación',
                     data: [90, 55],
                     backgroundColor: [
-                        'rgba(180, 83, 9, 0.6)',
-                        'rgba(217, 119, 6, 0.4)'
+                        'rgba(37, 99, 235, 0.6)',
+                        'rgba(96, 165, 250, 0.4)'
                     ],
                     borderColor: [
-                        'rgba(180, 83, 9, 1)',
-                        'rgba(217, 119, 6, 1)'
+                        'rgba(37, 99, 235, 1)',
+                        'rgba(96, 165, 250, 1)'
                     ],
                     borderWidth: 1
                 }]
