@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva de SEO para Redes Sociales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: He diseñado la aplicación con una estructura de navegación por pestañas (Instagram, LinkedIn, SEO para IA) en lugar de un formato de informe lineal. Esta arquitectura permite a los usuarios acceder directamente a la información que más les interesa. Dentro de cada pestaña, el contenido se subdivide en secciones lógicas como "Optimización", "Contenido" y "Qué Evitar", utilizando tarjetas interactivas y acordeones. Este enfoque temático y jerárquico mejora la navegabilidad y la asimilación del contenido, ya que el usuario puede explorar conceptos específicos sin tener que desplazarse por todo el documento. El flujo está pensado para guiar al usuario desde los fundamentos de la optimización de perfiles hasta las estrategias de contenido avanzadas y las tácticas a evitar, culminando en un plan de acción concreto. -->
+    <!-- Visualization & Content Choices: Para visualizar los datos y conceptos, he optado por una combinación de elementos interactivos. Report Info: Comparación de indexación de perfiles de LinkedIn. -> Goal: Comparar. -> Viz/Presentation Method: Gráfico de barras (Chart.js). -> Interaction: Tooltips al pasar el ratón. -> Justification: Un gráfico de barras es ideal para mostrar una comparación directa y cuantitativa de forma visualmente impactante. Report Info: Estrategias de contenido y prácticas a evitar. -> Goal: Informar y Organizar. -> Viz/Presentation Method: Tarjetas interactivas y listas de "Hacer y No Hacer" con iconos. -> Interaction: Efectos hover y clics para revelar información. -> Justification: Las tarjetas dividen la información compleja en fragmentos digeribles, y la interactividad fomenta la exploración activa por parte del usuario. Report Info: Plan de acción. -> Goal: Organizar/Proceso. -> Viz/Presentation Method: Acordeón interactivo. -> Interaction: Clic para expandir/colapsar pasos. -> Justification: Un acordeón es perfecto para presentar un proceso paso a paso de forma limpia y ordenada. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FDFBF8;
+            color: #383838;
+        }
+        .nav-button {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-button.active {
+            border-bottom-color: #D97706;
+            color: #D97706;
+            font-weight: 600;
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 py-8">
+        
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-amber-800 mb-2">Guía Interactiva de SEO para Redes Sociales</h1>
+            <p class="text-lg text-gray-600 max-w-3xl mx-auto">Navega por las estrategias clave para optimizar tu presencia en Instagram, LinkedIn y prepárate para la era de la búsqueda con IA.</p>
+        </header>
+
+        <nav class="flex justify-center border-b border-gray-200 mb-8">
+            <button class="nav-button active py-4 px-6 text-lg" data-target="instagram">
+                <span class="mr-2">📸</span> Instagram
+            </button>
+            <button class="nav-button py-4 px-6 text-lg" data-target="linkedin">
+                <span class="mr-2">💼</span> LinkedIn
+            </button>
+            <button class="nav-button py-4 px-6 text-lg" data-target="ai">
+                <span class="mr-2">🤖</span> SEO para IA
+            </button>
+        </nav>
+
+        <main>
+            <section id="instagram" class="content-section active">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">SEO en Instagram</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Desde el 10 de julio de 2025, el contenido de Instagram es indexable en Google. Esto transforma la plataforma de un simple escaparate visual a un potente motor de búsqueda de contenido. Aprende a optimizar tu perfil y publicaciones para maximizar tu visibilidad.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="font-bold text-xl mb-3 text-amber-700">✓ Requisitos de Indexación</h3>
+                        <ul class="space-y-2 text-gray-700 list-disc list-inside">
+                            <li>Cuenta <span class="font-semibold">Pública</span>.</li>
+                            <li>Cuenta <span class="font-semibold">Profesional</span> (Business o Creator).</li>
+                            <li>Propietario mayor de <span class="font-semibold">18 años</span>.</li>
+                            <li>Opción de visibilidad en buscadores <span class="font-semibold">activada</span>.</li>
+                        </ul>
+                    </div>
+                    <div class="card bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="font-bold text-xl mb-3 text-amber-700">👤 Optimización del Perfil</h3>
+                        <p class="text-gray-700">Tu perfil es tu carta de presentación. Incluye palabras clave en tu <span class="font-semibold">nombre y usuario</span>. Usa la <span class="font-semibold">biografía</span> para describir tu propuesta de valor y añade un <span class="font-semibold">enlace rastreable</span>.</p>
+                    </div>
+                    <div class="card bg-white p-6 rounded-xl shadow-md">
+                        <h3 class="font-bold text-xl mb-3 text-amber-700">✍️ Contenido Estratégico</h3>
+                        <p class="text-gray-700">Cada publicación es una oportunidad de SEO. Escribe <span class="font-semibold">pies de foto</span> largos y con contexto, utiliza el <span class="font-semibold">texto alternativo (Alt Text)</span> para describir tus imágenes y aprovecha formatos como <span class="font-semibold">Reels y Carruseles</span>.</p>
+                    </div>
+                </div>
+                <div class="mt-12">
+                    <h3 class="text-2xl font-bold text-center mb-6">Prácticas Clave: Hacer vs. No Hacer</h3>
+                    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2 text-green-800">✅ Hacer</h4>
+                            <ul class="space-y-2 list-disc list-inside text-green-700">
+                                <li>Usar una mezcla estratégica de hashtags (nicho, populares, de marca).</li>
+                                <li>Escribir texto alternativo descriptivo y natural.</li>
+                                <li>Dar crédito siempre al autor del contenido que compartes.</li>
+                                <li>Interactuar de forma genuina con tu comunidad.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2 text-red-800">❌ No Hacer</h4>
+                            <ul class="space-y-2 list-disc list-inside text-red-700">
+                                <li>Saturar con hashtags irrelevantes (`Hashtag Stuffing`).</li>
+                                <li>Repetir palabras clave de forma excesiva (`Keyword Stuffing`).</li>
+                                <li>Comprar seguidores, `likes` o reseñas falsas.</li>
+                                <li>Realizar `follows` o `likes` masivos que parezcan spam.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="linkedin" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">SEO en LinkedIn</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">LinkedIn es un motor de búsqueda de profesionales donde la autoridad y la credibilidad son clave. Descubre cómo optimizar tu perfil y contenido para destacar en las búsquedas internas y en Google, construyendo tu marca personal o de empresa.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Optimización del Perfil Profesional</h3>
+                        <div class="space-y-4">
+                            <div class="card bg-white p-4 rounded-lg shadow">
+                                <h4 class="font-semibold text-amber-700">Titular Estratégico</h4>
+                                <p class="text-sm text-gray-600">Usa los 220 caracteres para describir tu especialidad y propuesta de valor, no solo tu cargo.</p>
+                            </div>
+                            <div class="card bg-white p-4 rounded-lg shadow">
+                                <h4 class="font-semibold text-amber-700">Sección "Acerca de"</h4>
+                                <p class="text-sm text-gray-600">Cuenta tu historia profesional integrando palabras clave relevantes de forma natural.</p>
+                            </div>
+                            <div class="card bg-white p-4 rounded-lg shadow">
+                                <h4 class="font-semibold text-amber-700">Señales de Autoridad</h4>
+                                <p class="text-sm text-gray-600">Solicita y ofrece recomendaciones y validaciones de aptitudes para reforzar tu credibilidad.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-center mb-4">Impacto en Indexación: Perfil Personal vs. Página de Empresa</h3>
+                        <div class="chart-container">
+                            <canvas id="linkedinChart"></canvas>
+                        </div>
+                        <p class="text-center text-sm text-gray-500 mt-2">Los artículos en perfiles personales tienden a indexarse y posicionarse mejor y más rápido.</p>
+                    </div>
+                </div>
+                 <div class="mt-12">
+                    <h3 class="text-2xl font-bold text-center mb-6">Prácticas Clave: Hacer vs. No Hacer</h3>
+                    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                        <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2 text-green-800">✅ Hacer</h4>
+                            <ul class="space-y-2 list-disc list-inside text-green-700">
+                                <li>Publicar artículos de fondo para demostrar autoridad.</li>
+                                <li>Experimentar con contenido multimedia (vídeos, encuestas).</li>
+                                <li>Participar en conversaciones y aportar valor genuino.</li>
+                                <li>Personalizar las solicitudes de conexión.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-lg">
+                            <h4 class="font-bold text-lg mb-2 text-red-800">❌ No Hacer</h4>
+                            <ul class="space-y-2 list-disc list-inside text-red-700">
+                                <li>Enviar mensajes de venta agresivos y no personalizados.</li>
+                                <li>Hacer spam en foros con enlaces promocionales.</li>
+                                <li>Crear perfiles falsos para espiar o robar clientes.</li>
+                                <li>Abusar de las palabras clave en el titular o la descripción.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="ai" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">SEO para la Era de la IA</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">La búsqueda asistida por IA (como Google AI Overview) cambia el objetivo: no se trata solo de ganar el clic, sino de ser una fuente tan fiable que la IA te cite directamente. La clave es el concepto E-E-A-T.</p>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg mb-8">
+                    <h3 class="text-2xl font-bold text-center mb-4 text-amber-800">E-E-A-T: El Factor Clave de Citación</h3>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                        <div>
+                            <div class="text-4xl mb-2">🎓</div>
+                            <h4 class="font-bold">Experiencia</h4>
+                            <p class="text-sm text-gray-600">Conocimiento de primera mano.</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-2">🧠</div>
+                            <h4 class="font-bold">Pericia</h4>
+                            <p class="text-sm text-gray-600">Habilidad y conocimiento profundo.</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-2">🏆</div>
+                            <h4 class="font-bold">Autoridad</h4>
+                            <p class="text-sm text-gray-600">Reconocimiento como fuente fiable.</p>
+                        </div>
+                        <div>
+                            <div class="text-4xl mb-2">🛡️</div>
+                            <h4 class="font-bold">Fiabilidad</h4>
+                            <p class="text-sm text-gray-600">Contenido preciso y veraz.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="text-2xl font-bold text-center mb-6">Estrategias de Contenido para ser Citado por la IA</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card bg-white p-6 rounded-lg">
+                        <h4 class="font-semibold text-lg mb-2">📄 Contenido Estructurado</h4>
+                        <p class="text-gray-600">Usa encabezados, listas y tablas. La IA los adora para extraer información.</p>
+                    </div>
+                    <div class="card bg-white p-6 rounded-lg">
+                        <h4 class="font-semibold text-lg mb-2">📚 Cobertura Exhaustiva</h4>
+                        <p class="text-gray-600">Crea clusters de contenido que exploren un tema a fondo, anticipando preguntas.</p>
+                    </div>
+                    <div class="card bg-white p-6 rounded-lg">
+                        <h4 class="font-semibold text-lg mb-2">💬 Lenguaje Conversacional</h4>
+                        <p class="text-gray-600">Escribe de forma natural. Esto se alinea con la búsqueda por voz y facilita el procesamiento.</p>
+                    </div>
+                    <div class="card bg-white p-6 rounded-lg">
+                        <h4 class="font-semibold text-lg mb-2">🖼️ Optimización Multimodal</h4>
+                        <p class="text-gray-600">Optimiza imágenes con Alt Text y añade subtítulos a los vídeos. La IA procesa todo.</p>
+                    </div>
+                     <div class="card bg-white p-6 rounded-lg">
+                        <h4 class="font-semibold text-lg mb-2">🔍 Transparencia</h4>
+                        <p class="text-gray-600">Sé claro sobre el uso de IA en la creación de contenido para generar confianza.</p>
+                    </div>
+                     <div class="card bg-white p-6 rounded-lg">
+                        <h4 class="font-semibold text-lg mb-2">📊 Nuevas Métricas</h4>
+                        <p class="text-gray-600">Monitoriza menciones de marca y tu tasa de inclusión en resúmenes de IA, no solo los clics.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <section class="mt-16">
+                 <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold mb-2">Plan de Acción Estratégico</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Unifica tus estrategias de redes sociales y SEO con este plan de tres fases para capitalizar las nuevas tendencias.</p>
+                </div>
+                <div id="accordion" class="space-y-4 max-w-3xl mx-auto">
+                    <div class="accordion-item bg-white rounded-lg shadow-md">
+                        <button class="accordion-header w-full text-left p-5 font-semibold text-lg flex justify-between items-center">
+                            <span>Fase 1: Auditoría y Optimización de la Base</span>
+                            <span class="accordion-icon text-amber-700 text-2xl">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-700">
+                            <ul class="list-disc list-inside space-y-2 pt-2">
+                                <li><strong>Revisar Perfiles:</strong> Asegurar que los perfiles de Instagram y LinkedIn sean públicos, profesionales y cumplan los requisitos de indexación.</li>
+                                <li><strong>Refinar Optimización:</strong> Incluir palabras clave relevantes en nombres, biografías y titulares.</li>
+                                <li><strong>Mejorar Estructura:</strong> Usar URLs personalizadas y enlaces rastreables.</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="accordion-item bg-white rounded-lg shadow-md">
+                        <button class="accordion-header w-full text-left p-5 font-semibold text-lg flex justify-between items-center">
+                            <span>Fase 2: Creación de Contenido de Autoridad</span>
+                            <span class="accordion-icon text-amber-700 text-2xl">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-700">
+                           <ul class="list-disc list-inside space-y-2 pt-2">
+                                <li><strong>Priorizar E-E-A-T:</strong> Crear contenido exhaustivo y estructurado que demuestre experiencia y pericia.</li>
+                                <li><strong>Optimizar para lo Multimodal:</strong> Usar Alt Text en imágenes y subtítulos en vídeos.</li>
+                                <li><strong>Estrategia Mixta:</strong> Combinar formatos de alta interacción (Reels) con formatos de autoridad (Artículos).</li>
+                            </ul>
+                        </div>
+                    </div>
+                     <div class="accordion-item bg-white rounded-lg shadow-md">
+                        <button class="accordion-header w-full text-left p-5 font-semibold text-lg flex justify-between items-center">
+                            <span>Fase 3: Fomento de la Interacción y Confianza</span>
+                            <span class="accordion-icon text-amber-700 text-2xl">+</span>
+                        </button>
+                        <div class="accordion-content px-5 pb-5 text-gray-700">
+                            <ul class="list-disc list-inside space-y-2 pt-2">
+                                <li><strong>Fomentar Engagement Genuino:</strong> Participar activamente en la comunidad, no solo publicar.</li>
+                                <li><strong>Construir Autoridad en Red:</strong> Solicitar recomendaciones y colaborar con otros perfiles reconocidos.</li>
+                                <li><strong>Monitorear Nuevas Métricas:</strong> Rastrear menciones de marca y visibilidad en resúmenes de IA.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-16 pt-8 border-t border-gray-200">
+            <p class="text-gray-500">Aplicación interactiva creada para explorar las tendencias de SEO en Redes Sociales.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const navButtons = document.querySelectorAll('.nav-button');
+        const contentSections = document.querySelectorAll('.content-section');
+        const accordionItems = document.querySelectorAll('.accordion-item');
+
+        navButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                navButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const targetId = button.dataset.target;
+                contentSections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        accordionItems.forEach(item => {
+            const header = item.querySelector('.accordion-header');
+            const content = item.querySelector('.accordion-content');
+            const icon = item.querySelector('.accordion-icon');
+
+            header.addEventListener('click', () => {
+                const isOpen = content.style.maxHeight && content.style.maxHeight !== '0px';
+
+                accordionItems.forEach(i => {
+                    i.querySelector('.accordion-content').style.maxHeight = '0px';
+                    i.querySelector('.accordion-icon').textContent = '+';
+                });
+
+                if (!isOpen) {
+                    content.style.maxHeight = content.scrollHeight + 'px';
+                    icon.textContent = '-';
+                }
+            });
+        });
+
+        const ctx = document.getElementById('linkedinChart').getContext('2d');
+        const linkedinChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Perfil Personal', 'Página de Empresa'],
+                datasets: [{
+                    label: 'Velocidad y Ranking de Indexación',
+                    data: [90, 55],
+                    backgroundColor: [
+                        'rgba(180, 83, 9, 0.6)',
+                        'rgba(217, 119, 6, 0.4)'
+                    ],
+                    borderColor: [
+                        'rgba(180, 83, 9, 1)',
+                        'rgba(217, 119, 6, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.x !== null) {
+                                    label += `Índice de ${context.parsed.x}`;
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Efectividad Relativa (Índice)'
+                        }
+                    }
+                }
+            }
+        });
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.getElementById('instagram').classList.add('active');
+        });
+    </script>
+
+</body>
+</html>
